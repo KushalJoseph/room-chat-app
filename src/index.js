@@ -3,6 +3,9 @@ const http=require('http');
 const express=require('express');
 const socketio=require('socket.io');
 
+const port=process.env.PORT||3000;
+console.log("PORT: ",port);
+
 const app=express();
 const server=http.createServer(app);
 const io=socketio(server);
@@ -70,6 +73,6 @@ io.on('connection',(socket)=>{
 });
 
 //SERVER.listen(). Because socket io is connected to this server
-server.listen(3000,()=>{
+server.listen(port,()=>{
     console.log("Server up and running!");
 })
